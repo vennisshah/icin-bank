@@ -1,0 +1,105 @@
+<!-- <h2><i><mark>Please check the review of your quiz and if you have missed any questions please go back and submit them</mark></i></h2>
+<div>
+<div class="css" *ngFor="let quiz of quizs">
+<h3>Q.{{quiz.question}}</h3>
+<h3>Your answer:<mark>{{quiz.answer}}</mark></h3>
+</div>
+<button (click)="back()">Back to Quiz</button>
+<button (click)="result()">Submit</button>
+</div> -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="/review" class="nav-link" >Transfer</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/results" class="nav-link" >Account Transaction</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/takequiz" class="nav-link" >Request</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<br><router-outlet></router-outlet>
+
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="data:image/png;base64,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" alt=""/>
+                        <h3>Transfer Funds</h3>
+                      </div>
+                    <div class="col-md-9 register-right">
+                            <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Transfer Details </h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter recepient account number *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter the amount to be transferred*" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter the recepient *" value="" />
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                      <br><br><br>  
+                                        <input type="submit" class="btnRegister"  value="Transfer Amount"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                                                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>

@@ -1,0 +1,83 @@
+<!-- <h3><u>Attempt Quiz</u></h3>
+<div *ngFor="let quiz of quizs">
+<br>
+<h3><mark>Q.{{quiz.question}}</mark> </h3>
+<h3>{{quiz.opt1}}</h3>
+<h3>{{quiz.opt2}}</h3>
+<h3>{{quiz.opt3}}</h3>
+<h3>{{quiz.opt4}}</h3>
+<button (click)="addAnswer()">Submit</button>
+</div> -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="/tranfer" class="nav-link" >Transfer</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/transaction" class="nav-link" >Account Transaction</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/request" class="nav-link" >Request</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<br>
+
+<router-outlet></router-outlet>
+
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="data:image/png;base64,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" alt=""/>
+                        <h3>Request New Cheque Book</h3>
+                        
+                    </div>
+                    <div class="col-md-9 register-right">
+                       
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Request New Cheque Book</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter your account number *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter your description *   " value="" />
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                      <br>
+                                        <input type="submit" class="btnRegister"  value="Submit Request"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        
+
+
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
